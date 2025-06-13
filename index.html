@@ -780,18 +780,7 @@
 
 
 
- <!-- Ajoute ce style dans ton <head> -->
-<style>
-  .scrollbar-hide {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE 10+ */
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
-  }
-</style>
-
-<!-- STYLE scrollbar invisible -->
+ <!-- STYLE scroll + flèches -->
 <style>
   .scrollbar-hide {
     scrollbar-width: none;
@@ -814,18 +803,22 @@
       <div class="w-24 h-1 bg-emerald-600 mx-auto mt-4"></div>
     </div>
 
-    <!-- Flèches navigation -->
-    <button onclick="scrollTeam('left')" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-emerald-100 hidden md:flex">
-      <i class="fas fa-chevron-left text-emerald-700"></i>
-    </button>
-    <button onclick="scrollTeam('right')" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-emerald-100 hidden md:flex">
-      <i class="fas fa-chevron-right text-emerald-700"></i>
-    </button>
+    <!-- Flèches toujours visibles -->
+    <div class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
+      <button onclick="scrollTeam('left')" class="bg-white shadow-md p-2 rounded-full hover:bg-emerald-100 ml-2">
+        <i class="fas fa-chevron-left text-emerald-700 text-sm md:text-base"></i>
+      </button>
+    </div>
+    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10">
+      <button onclick="scrollTeam('right')" class="bg-white shadow-md p-2 rounded-full hover:bg-emerald-100 mr-2">
+        <i class="fas fa-chevron-right text-emerald-700 text-sm md:text-base"></i>
+      </button>
+    </div>
 
-    <!-- Conteneur scrollable -->
+    <!-- Carrousel horizontal -->
     <div id="team-carousel" class="flex overflow-x-auto space-x-6 pb-4 px-2 snap-x snap-mandatory scroll-smooth scrollbar-hide">
-      
-      <!-- 1. Chef de projet -->
+
+      <!-- Exemple de carte membre (1/7, dupliquer pour les autres) -->
       <div class="min-w-[280px] max-w-xs flex-shrink-0 bg-gray-50 rounded-lg shadow-md snap-start">
         <div class="h-48 bg-emerald-700 flex items-center justify-center">
           <i class="fas fa-project-diagram text-white text-4xl opacity-80"></i>
@@ -834,10 +827,13 @@
           <h3 class="text-lg font-bold text-gray-800">Tientcheu Siani Joël Marvin</h3>
           <p class="text-emerald-600 text-sm">Chef de projet & UX/UI Designer</p>
           <p class="text-gray-600 text-xs mt-2">Supervision, design, coordination globale du projet.</p>
-          <a href="sianimarvin237@gmail.com" class="block mt-3 text-gray-500 hover:text-emerald-600"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:sianimarvin237@gmail.com" class="block mt-3 text-gray-500 hover:text-emerald-600">
+            <i class="fas fa-envelope"></i>
+          </a>
         </div>
       </div>
-<!-- 6. Consultant agro -->
+
+         <!-- 6. Consultant agro -->
       <div class="min-w-[280px] max-w-xs flex-shrink-0 bg-gray-50 rounded-lg shadow-md snap-start">
         <div class="h-48 bg-green-600 flex items-center justify-center">
           <i class="fas fa-seedling text-white text-4xl opacity-80"></i>
@@ -921,7 +917,7 @@
   </div>
 </section>
 
-<!-- JS de scroll flèche -->
+<!-- JS scroll horizontal -->
 <script>
   function scrollTeam(direction) {
     const container = document.getElementById('team-carousel');
@@ -932,6 +928,7 @@
     });
   }
 </script>
+
 
 
 
